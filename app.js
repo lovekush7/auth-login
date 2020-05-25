@@ -26,4 +26,8 @@ app.use(express.json());
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 
+app.get('/', (req, res) => {
+  res.send('we are on home');
+
+});
 app.listen(PORT);
