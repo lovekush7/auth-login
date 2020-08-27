@@ -19,15 +19,16 @@ const userSchema = new mongoose.Schema({
     max: 1024,
     min: 6
   },
+  phone:
+  {
+    type: String,
+    required: true,
+  },
   date:
   {
     type: Date,
     default: Date.now
   },
-  phone:
-  {
-    type: String,
-    required: true,
-  }
+
 });
 module.exports = mongoose.model('User', userSchema);
