@@ -41,9 +41,7 @@ router.post('/login', async (req, res) => {
   const { error } = loginValidation(req.body)
   if (error) return res.status(400).send(error.details[0].message);
   const user = await User.findOne({
-    email: req.body.email,
-    phone: req.body.phone,
-    name: req.body.name
+    email: req.body.email
   });
   if (!user) return res.status(400).json({ message: 'Invalid password' })
   //password is correct
@@ -56,8 +54,7 @@ router.post('/login', async (req, res) => {
     token: token,
     success: true,
     email: req.body.email,
-    phone: req.body.phone,
-    name: req.body.name
+
   });
 
 
