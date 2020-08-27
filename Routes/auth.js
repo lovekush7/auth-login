@@ -25,7 +25,8 @@ router.post('/register', async (req, res) => {
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    password: hashedPassword
+    password: hashedPassword,
+    phone: req.body.phone
   })
   try {
     const savedUser = await user.save();
@@ -52,7 +53,9 @@ router.post('/login', async (req, res) => {
   res.header('auth-token', token).json({
     token: token,
     success: true,
-    email: req.body.email
+    email: req.body.email,
+    phone: req.body.phone,
+    name: req.body.name
   });
 
 
