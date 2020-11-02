@@ -12,22 +12,22 @@ dotenv.config();
 
 app.use(cors());
 
-mongoose.connect(process.env.DB_CONNECT,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  },
-  () => console.log('connected to db'));
+mongoose.connect(process.env.DB_CONNECT, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    },
+    () => console.log('connected to db'));
 
 app.use(express.json());
-
 
 //route middleware
 app.use('/api/user', authRoute);
 app.use('/api/posts', postRoute);
 
 app.get('/', (req, res) => {
-  res.send('we are on home');
-
+    res.send('we are on home');
 });
 app.listen(PORT);
+
+//DB_CONNECT=mongodb+srv://bond:jamesbond@cluster0.h7soh.mongodb.net/<dbname>?retryWrites=true&w=majority
+//mongodb+srv://root:root@cluster0.kpmgn.mongodb.net/<dbname>?retryWrites=true&w=majority
